@@ -1,0 +1,17 @@
+{
+  "name": "solar-store",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "SØLAR storefront, accounts and content management",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env server.mjs",
+    "setup-admin": "node --env-file-if-exists=.env scripts/setup-admin.mjs",
+    "check": "node scripts/check.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "backup": "node scripts/backup.mjs"
+  }
+}

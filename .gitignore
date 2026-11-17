@@ -1,0 +1,10 @@
+data/
+uploads/
+node_modules/
+.env
+.env.*
+!.env.example
+_preview/
+_backup/
+*.log
+.claude/

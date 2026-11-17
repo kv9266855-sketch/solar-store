@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>SØLAR — Управление</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23080808'/%3E%3Ctext x='4' y='24' fill='white' font-size='25'%3EØ%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/css/admin.css">
+  <script src="/js/admin.js" defer></script>
+</head>
+<body>
+  <div id="loginView" class="auth-shell">
+    <div class="auth-orbit" aria-hidden="true"></div>
+    <form id="loginForm" class="auth-card">
+      <a href="/" class="wordmark">SØLAR<span>CONTROL ROOM</span></a>
+      <p class="eyebrow">ЛИЧНЫЙ ДОСТУП</p>
+      <h1>За пределами<br>витрины.</h1>
+      <p class="muted">Войдите в аккаунт администратора, чтобы управлять магазином.</p>
+      <label>Логин<input name="username" autocomplete="username" required placeholder="Starkon"></label>
+      <label>Пароль<span class="password-wrap"><input name="password" type="password" autocomplete="current-password" required><button type="button" id="showPassword" class="password-toggle" aria-label="Показать пароль">Показать</button></span></label>
+      <p id="loginError" class="error" role="alert"></p>
+      <button class="button primary auth-submit" type="submit">ВОЙТИ <span>↗</span></button>
+      <a class="back-link" href="/">← Вернуться в магазин</a>
+    </form>
+  </div>
+  <div id="adminView" class="workspace" hidden>
+    <aside class="sidebar" id="sidebar">
+      <a href="/admin.html" class="wordmark">SØLAR<span>CONTROL ROOM</span></a>
+      <p class="nav-caption">МАГАЗИН</p>
+      <nav id="adminNav" aria-label="Управление сайтом">
+        <button data-view="overview"><i>◉</i>Обзор</button>
+        <button data-view="products"><i>◫</i>Товары</button>
+        <button data-view="orders"><i>↗</i>Заказы<span id="orderNavCount" class="nav-count"></span></button>
+        <button data-view="customers"><i>◎</i>Покупатели</button>
+        <button data-view="subscribers"><i>✉</i>Подписчики</button>
+        <p class="nav-caption">САЙТ</p>
+        <button data-view="content"><i>¶</i>Тексты и переводы</button>
+        <button data-view="sections"><i>▤</i>Секции и страницы</button>
+        <button data-view="people"><i>◌</i>Основатели и фото</button>
+        <button data-view="media"><i>▧</i>Медиатека</button>
+        <button data-view="design"><i>◐</i>Оформление</button>
+        <button data-view="settings"><i>⚙</i>Настройки и меню</button>
+        <button data-view="advanced"><i>⌘</i>Данные и резервные копии</button>
+        <button data-view="account"><i>◇</i>Мой аккаунт</button>
+      </nav>
+      <div class="sidebar-foot"><a href="/" target="_blank" rel="noopener">Открыть витрину ↗</a><button id="logoutBtn">Выйти из аккаунта</button><p>BEYOND THE LIGHT.</p></div>
+    </aside>
+    <div class="main-shell">
+      <header class="topbar">
+        <button id="menuBtn" class="mobile-menu-btn" aria-label="Открыть меню" aria-expanded="false">☰</button>
+        <div class="breadcrumb">ПАНЕЛЬ УПРАВЛЕНИЯ <span>/</span> <b id="breadcrumbTitle">ОБЗОР</b></div>
+        <div class="top-actions"><span class="save-state" id="saveState" role="status"><i></i>Всё сохранено</span><button id="saveBtn" class="button primary" disabled>Сохранить сайт <span>↗</span></button></div>
+      </header>
+      <main id="mainContent" tabindex="-1"></main>
+      <footer class="admin-footer"><span>SØLAR / CONTROL ROOM</span><span id="revisionLabel"></span></footer>
+    </div>
+  </div>
+  <dialog id="editorDialog" class="editor-dialog"><div id="dialogContent"></div></dialog>
+  <dialog id="confirmDialog" class="confirm-dialog"><form method="dialog"><p class="eyebrow">ПОДТВЕРЖДЕНИЕ</p><h2 id="confirmTitle"></h2><p id="confirmMessage" class="muted"></p><div class="dialog-actions"><button value="cancel" class="button">Отмена</button><button value="confirm" class="button primary">Продолжить</button></div></form></dialog>
+  <dialog id="mediaPicker" class="media-picker"><div class="dialog-head"><div><p class="eyebrow">МЕДИАТЕКА</p><h2>Выбрать изображение</h2></div><button class="close-btn" data-close="mediaPicker" aria-label="Закрыть">×</button></div><div id="mediaPickerContent"></div></dialog>
+  <div class="notification" id="notification" role="status" aria-live="polite"></div>
+</body>
+</html>

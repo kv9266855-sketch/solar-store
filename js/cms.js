@@ -17,7 +17,7 @@
       i18n: defaults,
       content: {
         brandTagline: "BEYOND THE LIGHT.", marquee: ["SØLAR", "BEYOND THE LIGHT", "DROP 01 — ECLIPSE", "EST. 2026", "STARKON × SLAYER"],
-        founders: [{ id: "starkon", name: "STARKON", image: abs("images/starkon.png"), bio: "" }, { id: "slayer", name: "SLAYER", image: "", bio: "" }],
+        founders: [{ id: "starkon", name: "STARKON", image: abs("images/starkon.webp"), bio: "" }, { id: "slayer", name: "SLAYER", image: abs("images/slayer.png"), bio: "" }],
         hero: { image: "", ctaHref: "#/shop" }, editorial: [{ image: "" }, { image: "" }, { image: "" }], dropImage: "",
         homepageSections: ["hero", "marquee", "featured", "manifesto", "editorial"], hiddenSections: [],
         navigation, footerNavigation: [...navigation, ...["contact", "shipping", "returns", "privacy", "terms"].map(slug => ({ labelKey: "footer." + slug, href: "#/page/" + slug }))],

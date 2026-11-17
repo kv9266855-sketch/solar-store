@@ -43,7 +43,7 @@ test('session cookies, CSRF, admin authorization and credential boundaries',asyn
 test('site revisions, drafts, complete content persistence and private file isolation',async()=>{
   const f=await fixture();try{
     const admin=f.client();await admin.login();const original=(await admin.request('/api/admin/site')).data;
-    const changed=structuredClone(original);changed.config.brand='EDITED BRAND';changed.products[0].published=false;changed.content.founders[0].image='/images/starkon.png';changed.i18n.ru['hero.sub']='УПРАВЛЯЕМЫЙ ТЕКСТ';
+    const changed=structuredClone(original);changed.config.brand='EDITED BRAND';changed.products[0].published=false;changed.content.founders[0].image='/images/starkon.webp';changed.i18n.ru['hero.sub']='УПРАВЛЯЕМЫЙ ТЕКСТ';
     const saved=await admin.request('/api/admin/site',{method:'PUT',body:changed});assert.equal(saved.status,200);assert.equal(saved.data.revision,original.revision+1);
     assert.equal((await admin.request('/api/admin/site',{method:'PUT',body:original})).status,409);
     const publicDoc=(await admin.request('/api/site')).data;assert.equal(publicDoc.config.brand,'EDITED BRAND');assert.equal(publicDoc.products.length,original.products.length-1);assert.equal(publicDoc.i18n.ru['hero.sub'],'УПРАВЛЯЕМЫЙ ТЕКСТ');
